@@ -25,7 +25,5 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this,"使用ButterKnife成功",Toast.LENGTH_SHORT).show();
                 break;
         }
-
-
     }
 }
