@@ -1,12 +1,13 @@
 package com.yao.rui.demo328.activitys;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import com.yao.rui.demo328.R;
 import com.yao.rui.demo328.activitys.BaseActivity;
+import com.yao.rui.demo328.utils.Toast;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -29,7 +30,8 @@ public class MainActivity extends BaseActivity {
     public void OnClick(View v) {
         switch (v.getId()) {
             case R.id.main_tv:
-                Toast.makeText(this, "使用ButterKnife成功", Toast.LENGTH_SHORT).show();
+//                Toast.show("使用ButterKnife成功");
+                startActivity(new Intent(this,TestFragActivity.class));
                 break;
         }
     }
