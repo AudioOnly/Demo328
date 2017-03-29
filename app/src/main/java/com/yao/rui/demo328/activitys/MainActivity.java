@@ -1,10 +1,11 @@
-package com.yao.rui.demo328;
+package com.yao.rui.demo328.activitys;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.yao.rui.demo328.R;
 import com.yao.rui.demo328.activitys.BaseActivity;
 
 import butterknife.ButterKnife;
