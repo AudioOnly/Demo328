@@ -8,8 +8,10 @@ import android.view.ViewGroup;
 
 import com.trello.rxlifecycle.android.FragmentEvent;
 import com.trello.rxlifecycle.components.support.RxFragment;
+import com.yao.rui.demo328.R;
 import com.yao.rui.demo328.activitys.BaseActivity;
 import com.yao.rui.demo328.utils.L;
+import com.yao.rui.demo328.utils.StatusBarUils;
 
 import butterknife.ButterKnife;
 import rx.Observable;
@@ -24,19 +26,18 @@ public abstract class BaseFragment extends RxFragment {
     protected boolean isVisible;
     //判断数据是否加载过，防止重复加载数据
     protected boolean isLoad;
-    L l=new L(BaseFragment.class);
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        l.e("onCreateView");
         return inflater.inflate(getLayoutID(),container,false);
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        l.e("onViewCreated");
+        //透明状态栏
+        StatusBarUils.translucentStatusBar(this,view.findViewById(R.id.v_fitsSystemWindows));
         //注册ButterKnife
         ButterKnife.bind(this,view);
         init(view,savedInstanceState);
@@ -45,7 +46,6 @@ public abstract class BaseFragment extends RxFragment {
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
-        l.e(getUserVisibleHint()+""+isVisibleToUser);
         if (isVisibleToUser) {
             isVisible = true;
             onVisible();

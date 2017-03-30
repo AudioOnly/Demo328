@@ -7,6 +7,9 @@ import android.support.annotation.Nullable;
 
 import com.trello.rxlifecycle.android.ActivityEvent;
 import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
+import com.yao.rui.demo328.R;
+import com.yao.rui.demo328.utils.SmartBarUtils;
+import com.yao.rui.demo328.utils.StatusBarUils;
 import com.yao.rui.demo328.utils.Toast;
 
 import java.util.ArrayList;
@@ -32,8 +35,11 @@ public abstract class BaseActivity extends RxAppCompatActivity {
         ACTIVITIES.add(this);
         //设置屏幕方向 竖屏
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        SmartBarUtils.hide(getWindow().getDecorView());
         //配置布局
         setContentView(getLayoutID());
+        //设置透明状态栏
+        StatusBarUils.translucentStatusBar(this, findViewById(R.id.v_fitsSystemWindows));
         //注册 ButterKnife
         ButterKnife.bind(this);
         init(savedInstanceState);

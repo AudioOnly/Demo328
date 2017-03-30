@@ -1,19 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.yao.rui.demo328.activitys.MainActivity">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/main_tv"
-        android:layout_width="wrap_content"
+    <RadioGroup
+        android:id="@+id/rg_tabs"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp">
+        <RadioButton
+            android:id="@+id/first"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:background="@android:color/transparent"
+            android:button="@null"
+            android:checked="true"
+            android:drawablePadding="4dp"
+            android:drawableTop="@drawable/ic_main_tab_status"
+            android:gravity="center_horizontal"
+            android:tag="0"
+            android:text="首页"
+            android:textColor="@color/text_main_tab"
+            android:textSize="12sp" />
+        <RadioButton
+            android:id="@+id/second"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:background="@android:color/transparent"
+            android:button="@null"
+            android:drawablePadding="4dp"
+            android:drawableTop="@drawable/ic_main_tab_status"
+            android:gravity="center_horizontal"
+            android:tag="1"
+            android:text="贰页"
+            android:textColor="@color/text_main_tab"
+            android:textSize="12sp" />
+        <RadioButton
+            android:id="@+id/third"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:background="@android:color/transparent"
+            android:button="@null"
+            android:drawablePadding="4dp"
+            android:drawableTop="@drawable/ic_main_tab_status"
+            android:gravity="center_horizontal"
+            android:tag="2"
+            android:text="叁页"
+            android:textColor="@color/text_main_tab"
+            android:textSize="12sp" />
+        <RadioButton
+            android:id="@+id/fourth"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:background="@android:color/transparent"
+            android:button="@null"
+            android:drawablePadding="4dp"
+            android:drawableTop="@drawable/ic_main_tab_status"
+            android:gravity="center_horizontal"
+            android:tag="2"
+            android:text="肆页"
+            android:textColor="@color/text_main_tab"
+            android:textSize="12sp" />
+        <RadioButton
+            android:id="@+id/fifth"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:background="@android:color/transparent"
+            android:button="@null"
+            android:drawablePadding="4dp"
+            android:drawableTop="@drawable/ic_main_tab_status"
+            android:gravity="center_horizontal"
+            android:tag="4"
+            android:text="伍页"
+            android:textColor="@color/text_main_tab"
+            android:textSize="12sp" />
+    </RadioGroup>
+    <com.yao.rui.demo328.views.NoScrollViewPager
+        android:id="@+id/vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/rg_tabs">
 
-</android.support.constraint.ConstraintLayout>
+    </com.yao.rui.demo328.views.NoScrollViewPager>
+
+</RelativeLayout>

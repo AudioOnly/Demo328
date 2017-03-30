@@ -1,13 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:id="@id/v_fitsSystemWindows"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/darker_gray"
+        android:layout_marginBottom="10dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:text="Fragment"/>
+    </LinearLayout>
     <TextView
-        android:id="@+id/frg_tv"
+        android:id="@+id/fg_tv"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:gravity="center"
         android:textSize="14sp"
-        android:text="Fragment"/>
+        android:text="Fragment"
+        android:background="@android:color/darker_gray"/>
 
 </LinearLayout>

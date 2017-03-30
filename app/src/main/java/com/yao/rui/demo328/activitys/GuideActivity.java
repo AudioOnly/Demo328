@@ -2,10 +2,13 @@ package com.yao.rui.demo328.activitys;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -26,7 +29,7 @@ import butterknife.BindView;
  */
 
 public class GuideActivity extends BaseActivity {
-    @BindView(R.id.vp)
+    @BindView(R.id.v_fitsSystemWindows)
     ViewPager vp;
     @BindView(R.id.stl)
     SmartTabLayout stl;
@@ -46,6 +49,7 @@ public class GuideActivity extends BaseActivity {
         }
     };
 
+
     @Override
     protected int getLayoutID() {
         return R.layout.activity_guide;
@@ -53,6 +57,7 @@ public class GuideActivity extends BaseActivity {
 
     @Override
     protected void init(Bundle savedInstanceState) {
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         datas = new ArrayList<>();
         datas.add(new GuideHolder(createItemView(R.drawable.lead_01_bg)));
         datas.add(new GuideHolder(createItemView(R.drawable.lead_03_bg)));

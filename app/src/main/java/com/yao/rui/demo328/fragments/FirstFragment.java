@@ -17,7 +17,7 @@ public class FirstFragment extends BaseFragment {
 
     private boolean isPrepared = false;
 
-    @BindView(R.id.frg_tv)
+    @BindView(R.id.fg_tv)
     TextView tv;
 
     public static FirstFragment inStance(String title) {
@@ -42,10 +42,8 @@ public class FirstFragment extends BaseFragment {
     @Override
     protected void lazyLoad() {
         if (!isPrepared || !isVisible|| isLoad){
-            toast("return了");
             return;
         }
-        toast("没有return");
         //做耗时的数据操作
         tv.setText(getArguments().getString("title", "没有找到数据"));
         tv.setOnClickListener(v -> {
