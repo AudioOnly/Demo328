@@ -39,6 +39,9 @@ dependencies {
     compile 'com.trello:rxlifecycle:1.0'
     // If you want pre-written Activities and Fragments you can subclass as providers
     compile 'com.trello:rxlifecycle-components:1.0'
+//    添加smarttablayout
+    compile 'com.ogaclejapan.smarttablayout:library:1.6.1@aar'
+    compile 'com.ogaclejapan.smarttablayout:utils-v4:1.6.1@aar'
 
 
 
