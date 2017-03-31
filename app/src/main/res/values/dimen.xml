@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--分隔线宽度-->
+    <dimen name="divider">2px</dimen>
+    <!--titleView 高度-->
+    <dimen name="titleheight">48dp</dimen>
+</resources>

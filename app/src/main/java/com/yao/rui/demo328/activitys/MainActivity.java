@@ -1,11 +1,6 @@
 package com.yao.rui.demo328.activitys;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.IdRes;
-import android.support.v4.view.ViewPager;
-import android.view.View;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItemAdapter;
@@ -16,8 +11,6 @@ import com.yao.rui.demo328.utils.FinishLogic;
 import com.yao.rui.demo328.views.NoScrollViewPager;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class MainActivity extends BaseActivity {
     @BindView(R.id.rg_tabs)
@@ -46,20 +39,17 @@ public class MainActivity extends BaseActivity {
         fragmentPagerItemAdapter = new FragmentPagerItemAdapter(
                 getSupportFragmentManager(),
                 FragmentPagerItems.with(this)
-                        .add("", FirstFragment.class, b1)
-                        .add("", FirstFragment.class, b2)
-                        .add("", FirstFragment.class, b3)
-                        .add("", FirstFragment.class, b4)
-                        .add("", FirstFragment.class, b5)
+                        .add("111", FirstFragment.class, b1)
+                        .add("222", FirstFragment.class, b2)
+                        .add("333", FirstFragment.class, b3)
+                        .add("444", FirstFragment.class, b4)
+                        .add("555", FirstFragment.class, b5)
                         .create());
         vp.setAdapter(fragmentPagerItemAdapter);
-        vp.setOffscreenPageLimit(5);//onInterceptTouchEvent
-        rg_tabs.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
-                vp.setCurrentItem(Integer.valueOf(findViewById(checkedId).getTag().toString()), false);
-            }
-        });
+        vp.setOffscreenPageLimit(5);
+        rg_tabs.setOnCheckedChangeListener((group, checkedId) -> vp.setCurrentItem(
+                Integer.valueOf(findViewById(checkedId).getTag().toString())
+                , false));
     }
 
     @Override

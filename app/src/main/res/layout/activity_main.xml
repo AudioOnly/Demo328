@@ -64,7 +64,7 @@
             android:drawablePadding="4dp"
             android:drawableTop="@drawable/ic_main_tab_status"
             android:gravity="center_horizontal"
-            android:tag="2"
+            android:tag="3"
             android:text="肆页"
             android:textColor="@color/text_main_tab"
             android:textSize="12sp" />

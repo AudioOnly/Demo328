@@ -5,9 +5,9 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.yao.rui.demo328.R;
+import com.yao.rui.demo328.views.TitleView;
 
 import butterknife.BindView;
-import butterknife.OnClick;
 
 /**
  * Created by Rny on 2017/3/29.
@@ -19,11 +19,13 @@ public class FirstFragment extends BaseFragment {
 
     @BindView(R.id.fg_tv)
     TextView tv;
+    @BindView(R.id.v_fitsSystemWindows)
+    TitleView title_tv;
 
     public static FirstFragment inStance(String title) {
         FirstFragment fragment = new FirstFragment();
         Bundle bundle = new Bundle();
-        bundle.putString("title", "标题设置");
+        bundle.putString("title", title);
         fragment.setArguments(bundle);
         return fragment;
     }
@@ -45,10 +47,7 @@ public class FirstFragment extends BaseFragment {
             return;
         }
         //做耗时的数据操作
-        tv.setText(getArguments().getString("title", "没有找到数据"));
-        tv.setOnClickListener(v -> {
-            toast("测试BaseFragment");
-        });
+        title_tv.setTitle(getArguments().getString("title", "没有找到数据"));
         //数据操作完成
         isLoad = true;//防止数据重复加载
     }

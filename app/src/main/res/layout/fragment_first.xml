@@ -3,19 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <LinearLayout
+    <com.yao.rui.demo328.views.TitleView
         android:id="@id/v_fitsSystemWindows"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/darker_gray"
-        android:layout_marginBottom="10dp">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:gravity="center"
-            android:textSize="14sp"
-            android:text="Fragment"/>
-    </LinearLayout>
+        android:layout_height="wrap_content">
+    </com.yao.rui.demo328.views.TitleView>
     <TextView
         android:id="@+id/fg_tv"
         android:layout_width="match_parent"
@@ -23,6 +15,7 @@
         android:gravity="center"
         android:textSize="14sp"
         android:text="Fragment"
-        android:background="@android:color/darker_gray"/>
+        android:background="@android:color/darker_gray"
+        android:layout_marginTop="10dp"/>
 
 </LinearLayout>

@@ -8,6 +8,7 @@ import com.yao.rui.demo328.R;
 import com.yao.rui.demo328.fragments.FirstFragment;
 
 /**
+ * 测试Activity
  * Created by Rny on 2017/3/29.
  */
 
