@@ -29,25 +29,23 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:25.3.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-//    添加Butterknife
+    //    添加Butterknife
     compile 'com.jakewharton:butterknife:8.5.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
-//    添加 Android生命周期
+    //    添加 Android生命周期
     compile 'com.trello:rxlifecycle:1.0'
     // If you want pre-written Activities and Fragments you can subclass as providers
     compile 'com.trello:rxlifecycle-components:1.0'
-//    添加smarttablayout
+    //    添加smarttablayout
     compile 'com.ogaclejapan.smarttablayout:library:1.6.1@aar'
     compile 'com.ogaclejapan.smarttablayout:utils-v4:1.6.1@aar'
-
-
-
     //RxAndroid和RxJava冲突========================================
     //    添加 RxAndroid 该版本和rxlifecycle中的rxandroid和rxjava版本 冲突
     //compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
     //Because RxAndroid releases are few and far between, it is recommended you also explicitly depend on RxJava's latest version for bug fixes and new features.
     //compile 'io.reactivex.rxjava2:rxjava:2.0.1'
+    compile 'com.android.support:recyclerview-v7:25.3.0'
 }

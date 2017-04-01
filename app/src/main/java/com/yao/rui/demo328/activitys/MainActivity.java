@@ -7,6 +7,7 @@ import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItemAdapter;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItems;
 import com.yao.rui.demo328.R;
 import com.yao.rui.demo328.fragments.FirstFragment;
+import com.yao.rui.demo328.fragments.SecondFragment;
 import com.yao.rui.demo328.utils.FinishLogic;
 import com.yao.rui.demo328.views.NoScrollViewPager;
 
@@ -40,7 +41,7 @@ public class MainActivity extends BaseActivity {
                 getSupportFragmentManager(),
                 FragmentPagerItems.with(this)
                         .add("111", FirstFragment.class, b1)
-                        .add("222", FirstFragment.class, b2)
+                        .add("222", SecondFragment.class, b2)
                         .add("333", FirstFragment.class, b3)
                         .add("444", FirstFragment.class, b4)
                         .add("555", FirstFragment.class, b5)
