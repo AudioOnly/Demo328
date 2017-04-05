@@ -1,4 +1,4 @@
-package com.yao.rui.demo328.viewholders;
+package com.yao.rui.pagerv.rv;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;

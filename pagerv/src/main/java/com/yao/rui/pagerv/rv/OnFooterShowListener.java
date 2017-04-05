@@ -1,4 +1,4 @@
-package com.yao.rui.demo328.interfaces;
+package com.yao.rui.pagerv.rv;
 
 /**
  * 添加RecyclerView的Footer监听

@@ -5,12 +5,17 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.yao.rui.demo328.R;
-import com.yao.rui.demo328.adapters.BaseRecyclerViewAdapter;
-import com.yao.rui.demo328.viewholders.BaseViewHolder;
+import com.yao.rui.demo328.pagehelper.IntergerPageHelper;
+import com.yao.rui.demo328.views.ContentStatusView;
+import com.yao.rui.pagerv.helpers.OnNextPageListener;
+import com.yao.rui.pagerv.refresh.PageRefreshView;
+import com.yao.rui.pagerv.rv.BaseRecyclerViewAdapter;
+import com.yao.rui.pagerv.rv.BaseViewHolder;
+import com.yao.rui.demo328.views.FooterStatusView;
+import com.yao.rui.pagerv.rv.PRecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,11 +32,15 @@ public class SecondFragment extends BaseFragment {
     private boolean isPrepared = false;
 
     @BindView(R.id.srl)
-    SwipeRefreshLayout srl;
+    PageRefreshView srl;
     @BindView(R.id.rv)
-    RecyclerView rv;
-    //测试数据
-    List<String> datas;
+    PRecyclerView rv;
+    @BindView(R.id.csv)
+    ContentStatusView csv;
+
+    FooterStatusView footerStatusView;
+
+    private IntergerPageHelper<String ,TestViewHolder> mHelper=new IntergerPageHelper<>();
 
     @Override
     protected int getLayoutID() {
@@ -42,6 +51,7 @@ public class SecondFragment extends BaseFragment {
     protected void init(View view, Bundle savedInsanceState) {
         isPrepared = true;
         lazyLoad();
+
     }
 
     @Override
@@ -49,18 +59,40 @@ public class SecondFragment extends BaseFragment {
         if (!isPrepared || !isVisible || isLoad) {
             return;
         }
-        srl.setRefreshing(false);
-        rv.setLayoutManager(new LinearLayoutManager(getContext()));
-        rv.setHasFixedSize(true);
+        //初始化PRecyclerView
+        rv.init(new LinearLayoutManager(getContext()),true,adapter);
+        //初始化分页
+        footerStatusView=new FooterStatusView(getContext());
+        mHelper.init(adapter, csv, srl, footerStatusView, new OnNextPageListener<Integer>() {
+            @Override
+            public void loadPage(Integer key) {
+                SecondFragment.this.loadPage(key);
+            }
+        });
+        //开始加载数据
+        mHelper.start(1, "数据加载中...", "正在获取下一页", "暂无数据信息", "没有更多数据了");
 
-        datas = new ArrayList<>();
-        for (int i = 0; i < 15; i++) {
-            datas.add("测试：：：：" + i);
-        }
-        adapter.addAll(datas);
-        rv.setAdapter(adapter);
-        rv.setItemAnimator(null);
         isLoad = true;
+    }
+
+
+    private void loadPage(int page){
+        rv.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (page > 3) {
+                    mHelper.loadEmpty(page);
+//                    mHelper.loadFailed(page,"网络错误！","网络错误，点击重新加载下一页");
+
+                }else{
+                    List<String> datas = new ArrayList<>();
+                    for (int i = 0; i < 10; i++) {
+                        datas.add("测试：：：：" + i);
+                    }
+                    mHelper.loadSuccess(page,datas);
+                }
+            }
+        },1500);
     }
 
 

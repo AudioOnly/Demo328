@@ -1,14 +1,10 @@
-package com.yao.rui.demo328.adapters;
+package com.yao.rui.pagerv.rv;
 
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.yao.rui.demo328.R;
-import com.yao.rui.demo328.interfaces.OnFooterShowListener;
-import com.yao.rui.demo328.viewholders.BaseViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -106,6 +102,14 @@ public abstract class BaseRecyclerViewAdapter<T, H> extends RecyclerView.Adapter
         return objects.size() + (vHeader == null ? 0 : 1) + (vFooter == null ? 0 : 1);
     }
 
+    /**
+     * 获取当前列表数据
+     * @return 列表
+     */
+    public List<T> list(){
+        return objects;
+    }
+
     //移除数据
     public Boolean removeData(T data) {
         return objects.remove(data);
@@ -183,7 +187,9 @@ public abstract class BaseRecyclerViewAdapter<T, H> extends RecyclerView.Adapter
     /**
      * 还原到初始化状态
      */
-    public void resetUI() {
+    public void resetUI(boolean needClearHeader) {
+        if (needClearHeader)
+            setvHeader(null);
         clearData();
         setvFooter(null);
         notifyDataSetChanged();
